@@ -18,6 +18,15 @@ def write_to_csv(data):
         csv_writer = csv.writer(db1, delimiter=',',quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([email,subject,msg])
 
+
+def write_to_csv_checking_github_push(data):
+    with open('database.csv',mode='a',newline='') as db1:
+        email =  data['email']
+        subject = data['subject']
+        msg = data['msg']
+        csv_writer = csv.writer(db1, delimiter=',',quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csv_writer.writerow([email,subject,msg])
+
 def write_to_file(data):
     with open('database.txt', mode='a') as db:
         email =  data['email']
